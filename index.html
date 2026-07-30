@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om Rawat | My Brother</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+header{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero{
+animation:fadeIn 2s ease;
+}
+
+.hero h1{
+font-size:70px;
+color:#33b5ff;
+text-shadow:0 0 20px #0099ff;
+}
+
+.hero h2{
+font-size:28px;
+margin-top:15px;
+color:white;
+}
+
+.hero p{
+margin-top:20px;
+font-size:18px;
+max-width:700px;
+line-height:1.7;
+color:#d9e6ff;
+}
+
+button{
+margin-top:35px;
+padding:15px 40px;
+border:none;
+background:#0099ff;
+color:white;
+font-size:18px;
+border-radius:40px;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 0 20px #0099ff;
+}
+
+button:hover{
+transform:scale(1.1);
+background:#0077cc;
+}
+
+section{
+max-width:1100px;
+margin:auto;
+padding:100px 30px;
+animation:fadeUp 1s;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.1);
+box-shadow:0 0 25px rgba(0,153,255,.3);
+}
+
+h3{
+font-size:40px;
+margin-bottom:25px;
+color:#33b5ff;
+}
+
+ul{
+margin-top:20px;
+}
+
+li{
+margin:15px 0;
+font-size:20px;
+}
+
+.message{
+font-size:21px;
+line-height:2;
+}
+
+footer{
+text-align:center;
+padding:40px;
+background:#02030b;
+font-size:18px;
+color:#66c2ff;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(50px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(60px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@media(max-width:700px){
+
+.hero h1{
+font-size:45px;
+}
+
+.hero h2{
+font-size:22px;
+}
+
+h3{
+font-size:30px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="canvas"></canvas>
+
+<header>
+
+<div class="hero">
+
+<h1>OM RAWAT</h1>
+
+<h2>A Brother • A Friend • A Lifelong Inspiration</h2>
+
+<p>
+Some bonds can never be explained with words.
+They are built with trust, laughter, memories,
+and countless moments that stay forever.
+</p>
+
+<button onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">
+Read My Message ❤️
+</button>
+
+</div>
+
+</header>
+
+<section>
+
+<div class="card">
+
+<h3>Why My Brother is Special</h3>
+
+<ul>
+
+<li>❤️ Always supports the family.</li>
+
+<li>💙 Honest and kind-hearted.</li>
+
+<li>🌟 Inspires everyone through actions.</li>
+
+<li>🤝 Always stands beside loved ones.</li>
+
+<li>🚀 Someone I truly admire every day.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<section id="message">
+
+<div class="card">
+
+<h3>A Message From Your Brother</h3>
+
+<p class="message">
+
+Dear Om,
+
+<br><br>
+
+Life has given me many people to meet, but very few become such an important part of my journey.
+
+You have always been much more than just my brother.
+
+You have been my supporter during difficult days, my companion during happy moments, and someone I can always rely on.
+
+Every memory we have shared has become a part of who I am today.
+
+I truly admire your strength, your kindness, and the way you always care for the people around you.
+
+No matter how much time passes or where life takes us, one thing will never change—
+
+you will always be one of the most important people in my life.
+
+This website is only a small gift, but it carries a very big feeling.
+
+It is my way of saying...
+
+<b>
+
+Thank you for always being there.
+
+Thank you for being an amazing brother.
+
+I am proud to call you my brother.
+
+</b>
+
+<br><br>
+
+With love and respect,
+
+<br><br>
+
+<b>— Viraaj Goyal ❤️</b>
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Crafted with ❤️ by Viraaj Goyal
+
+</footer>
+
+<script>
+
+const canvas=document.getElementById("canvas");
+const ctx=canvas.getContext("2d");
+
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+
+let particles=[];
+
+for(let i=0;i<150;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*3,
+
+dx:(Math.random()-.5),
+
+dy:(Math.random()-.5)
+
+});
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#33b5ff";
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+
+ctx.fill();
+
+p.x+=p.dx;
+
+p.y+=p.dy;
+
+if(p.x<0||p.x>canvas.width)p.dx*=-1;
+
+if(p.y<0||p.y>canvas.height)p.dy*=-1;
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+window.onresize=()=>{
+
+canvas.width=innerWidth;
+
+canvas.height=innerHeight;
+
+}
+
+</script>
+
+</body>
+</html>
